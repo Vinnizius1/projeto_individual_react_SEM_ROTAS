@@ -1,0 +1,10 @@
+.usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+img {
+    border-radius: 50%;
+}

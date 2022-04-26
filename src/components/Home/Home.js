@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { APIMock } from "./Users";
+import { APIMock } from "../Users";
+import "./Home.css";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
