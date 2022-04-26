@@ -10,7 +10,7 @@ const Home = () => {
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
-        console.log(data);
+        // console.log(data);
       });
   }, []);
 
@@ -21,20 +21,21 @@ const Home = () => {
       {users.map((user) => {
         return (
           <div className="usuario" key={user.id}>
-            <div className="usuario-img">
-              <img src={user.img} alt={user.name} />
-            </div>
+            <img src={user.img} alt={user.name} />
 
             <div className="usuario-dados">
-              <h3>{user.name}</h3>
-              <p>
+              <h3>
+                <span>Nome do Usuário:</span> {user.name}
+              </h3>
+
+              <h3>
                 ID: {user.id} - Username: {user.username}
-              </p>
+              </h3>
             </div>
 
-            <div className="usuario-botao" style={{marginBottom: "5px"}}>
-              <button type="submit" value="Submit">Pagar</button>
-            </div>
+            <button type="submit" value="Submit">
+              Pagar
+            </button>
           </div>
         );
       })}
