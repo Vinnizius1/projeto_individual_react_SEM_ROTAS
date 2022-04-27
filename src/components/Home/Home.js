@@ -24,13 +24,13 @@ const Home = () => {
             <img src={user.img} alt={user.name} />
 
             <div className="usuario-dados">
-              <h3>
+              <p>
                 <span>Nome do Usuário:</span> {user.name}
-              </h3>
+              </p>
 
-              <h3>
+              <p>
                 ID: {user.id} - Username: {user.username}
-              </h3>
+              </p>
             </div>
 
             <button type="submit" value="Submit">

@@ -31,9 +31,9 @@ h1 {
   text-align: center;
 }
 
-h3 {
-  font-size: 110%;
-  font-weight: bold;
+p {
+  /* font-size: 110%; */
+  font-weight: 700;
   color: white;
   margin: 1rem;
 }
