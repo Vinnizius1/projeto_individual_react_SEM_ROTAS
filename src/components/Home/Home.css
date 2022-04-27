@@ -42,12 +42,35 @@ button {
   position: absolute;
   right: 5%;
   padding: 0.2rem 1rem;
-  font-weight: bold;
-  border-style: none;
+  font-weight: 500;
+  /* border-style: none; */
+  border: none;
   border-radius: 2px;
   font-size: 100%;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+button:hover {
+  /* background-color: rgb(178, 178, 178); */
+  color: rgb(3, 147, 13);
+  font-weight: 700;
 }
 
 /* p > span {
   font-weight: normal;
 } */
+
+@media screen and (max-width: 517px) {
+  .usuario-dados {
+    margin-right: 8rem;
+  }
+
+  button {
+    right: 4%;
+  }
+
+  img {
+    margin: 0rem 0rem 0rem 3rem;
+  }
+}
