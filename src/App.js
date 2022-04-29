@@ -4,10 +4,7 @@ import Teste from "./components/Teste/Teste";
 function App() {
   return (
     <div className="App">
-      <Home>
-        <Teste/>
-      </Home>
-      {/* <Home /> */}
+      <Home />
     </div>
   );
 }
