@@ -14,6 +14,13 @@ const Home = () => {
       });
   }, []);
 
+  /* Função handleClick */
+  function handleClick (user) {
+    // console.log("O nome deste usuário(a) é", user.name);
+
+
+  }
+
   return (
     <div className="container">
       <h1>Lista de Usuários</h1>
@@ -33,7 +40,7 @@ const Home = () => {
               </p>
             </div>
 
-            <button type="submit" value="Submit">
+            <button type="submit" value="Submit" onClick={() => handleClick(user)}>
               Pagar
             </button>
           </div>
