@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import ModalUsuario from "../Modal/ModalUsuario";
 import { APIMock } from "../Users";
 import "./Home.css";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     fetch(APIMock)
@@ -14,16 +16,11 @@ const Home = () => {
       });
   }, []);
 
-  /* Função handleClick */
-  function handleClick (user) {
-    // console.log("O nome deste usuário(a) é", user.name);
-
-
-  }
 
   return (
-    <div className="container">
+    <div className="container" id="home">
       <h1>Lista de Usuários</h1>
+      {openModal && <ModalUsuario />}
 
       {users.map((user) => {
         return (
@@ -40,9 +37,7 @@ const Home = () => {
               </p>
             </div>
 
-            <button type="submit" value="Submit" onClick={() => handleClick(user)}>
-              Pagar
-            </button>
+            <button onClick={() => setOpenModal(true)}>Pagar</button>
           </div>
         );
       })}
