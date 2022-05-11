@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import ModalUsuario from "../Modal/ModalUsuario";
-import { APIMock } from "../Users";
+import { APIMock } from "../../data/Users";
 import "./Home.css";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
   const [openModal, setOpenModal] = useState(false);
 
+  /* GET Fetch */
   useEffect(() => {
     fetch(APIMock)
       .then((response) => response.json())
