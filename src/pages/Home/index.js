@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import ModalUsuario from "../Modal/ModalUsuario";
-import { APIMock } from "../../data/Users";
-import "./Home.css";
+import ModalUsuario from "../../components/Modal/ModalUsuario";
+import { APIMock } from "../../data/APIMock";
+import "./index.css";
 
+/* Função Home */
 const Home = () => {
   const [users, setUsers] = useState([]);
   const [openModal, setOpenModal] = useState(false);
@@ -16,7 +17,6 @@ const Home = () => {
         // console.log(data);
       });
   }, []);
-
 
   return (
     <div className="container" id="home">
