@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import ModalUsuario from "../../components/Modal/index";
+import ModalUsuario from "../../components/modal/ModalUser";
 import { APIMock } from "../../data/APIMock";
 import "./styles.css";
 
 /* Função Home */
 const Home = () => {
   const [users, setUsers] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
+  const [modal, setModal] = useState(false);
 
   /* GET Fetch */
   useEffect(() => {
@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div className="container" id="home">
       <h1>Lista de Usuários</h1>
-      {openModal && <ModalUsuario />}
+      {modal && <ModalUsuario />}
 
       {users.map((user) => {
         return (
@@ -38,7 +38,7 @@ const Home = () => {
               </p>
             </div>
 
-            <button onClick={() => setOpenModal(true)}>Pagar</button>
+            <button onClick={() => setModal(true)}>Pagar</button>
           </div>
         );
       })}
