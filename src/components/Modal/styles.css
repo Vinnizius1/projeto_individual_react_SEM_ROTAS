@@ -6,10 +6,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .modalContainer {
-  width: 500px;
+  width: 600px;
   height: 500px;
   border-radius: 12px;
   background-color: white;

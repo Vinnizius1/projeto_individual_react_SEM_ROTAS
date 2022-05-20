@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ModalUsuario from "../../components/modal/ModalUser";
+import ModalUser from "../../components/modal/ModalUser";
 import { APIMock } from "../../data/APIMock";
 import "./styles.css";
 
@@ -20,9 +20,10 @@ const Home = () => {
 
   return (
     <div className="container" id="home">
+      {modal && <ModalUser closeModal={setModal}/>}
       <h1>Lista de Usuários</h1>
-      {modal && <ModalUsuario />}
 
+      {/* Listagem dos usuários */}
       {users.map((user) => {
         return (
           <div className="usuario" key={user.id}>
@@ -38,7 +39,7 @@ const Home = () => {
               </p>
             </div>
 
-            <button onClick={() => setModal(true)}>Pagar</button>
+            <button className="btn-pagar" onClick={() => setModal(true)}>Pagar</button>
           </div>
         );
       })}
