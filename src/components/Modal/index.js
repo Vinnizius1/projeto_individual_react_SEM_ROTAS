@@ -1,4 +1,4 @@
-import "./ModalUsuario.css";
+import "./styles.css";
 
 function ModalUsuario() {
   return <h2>Ei</h2>;

@@ -56,6 +56,7 @@ button:hover {
   /* background-color: rgb(178, 178, 178); */
   color: rgb(3, 147, 13);
   font-weight: 700;
+  padding: 0.5rem 2rem;
 }
 
 /* p > span {

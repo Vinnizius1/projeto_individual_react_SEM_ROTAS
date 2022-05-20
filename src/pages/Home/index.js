@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import ModalUsuario from "../../components/Modal/ModalUsuario";
+import ModalUsuario from "../../components/Modal/index";
 import { APIMock } from "../../data/APIMock";
-import "./index.css";
+import "./styles.css";
 
 /* Função Home */
 const Home = () => {
