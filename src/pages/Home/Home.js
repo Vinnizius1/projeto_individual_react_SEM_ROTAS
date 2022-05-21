@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import ModalUser from "../../components/modal/ModalUser";
+import ModalUser from "../modal/ModalUser";
 import { APIMock } from "../../data/APIMock";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 /* Função Home */
@@ -18,28 +19,35 @@ const Home = () => {
       });
   }, []);
 
+  // Função que abre a página Modal
+  // function openModal() {
+  //   setModal(true);
+  // }
+
   return (
     <div className="container" id="home">
-      {modal && <ModalUser closeModal={setModal}/>}
+      {modal && <ModalUser closeModal={setModal} user={users} />}
       <h1>Lista de Usuários</h1>
 
       {/* Listagem dos usuários */}
       {users.map((user) => {
         return (
           <div className="usuario" key={user.id}>
-            <img src={user.img} alt={user.name} />
+            <img className="img-usuario" src={user.img} alt={user.name} />
 
             <div className="usuario-dados">
-              <p>
-                <span>Nome do Usuário:</span> {user.name}
+              <p className="p-usuario">
+                Nome do Usuário: <span>{user.name}</span>
               </p>
 
-              <p>
+              <p className="p-usuario">
                 ID: {user.id} - Username: {user.username}
               </p>
             </div>
 
-            <button className="btn-pagar" onClick={() => setModal(true)}>Pagar</button>
+            <Link to={`/user/${user.name}`}>
+              <button className="btn-pagar">Pagar</button>
+            </Link>
           </div>
         );
       })}
