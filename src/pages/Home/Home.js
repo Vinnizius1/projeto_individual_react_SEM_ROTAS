@@ -3,6 +3,7 @@ import ModalUser from "../modal/ModalUser";
 import { APIMock } from "../../data/APIMock";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import Button from "../../components/button/Button";
 
 /* Função Home */
 const Home = () => {
@@ -46,7 +47,7 @@ const Home = () => {
             </div>
 
             <Link to={`/user/${user.name}`}>
-              <button className="btn-pagar">Pagar</button>
+              <Button />
             </Link>
           </div>
         );

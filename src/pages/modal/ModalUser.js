@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import Button from "../../components/button/Button";
 import "./styles.css";
 
 function ModalUser(props) {
@@ -8,18 +9,18 @@ function ModalUser(props) {
   return (
     <div className="modalBackground">
       <div className="modalContainer">
-        {/* <div className="titleCloseBtn">
-          <button type="text" onClick={() => props.closeModal(false)}>X</button>
-        </div> */}
         <div className="title">
-          <p>Pagamento para: {name} </p>
+          <p>Pagamento para: <span>{name}</span></p>
         </div>
         <div className="body">
-          <input type="text" placeholder="input 1" />
-          <input type="text" placeholder="input 2" />
+          <input type="text" placeholder="R$ 0,00" />
+          <select id="creditCard" name="creditCard">
+            <option value="4111111111111234">Cartão com final 1234</option>
+            <option value="1111111111111111">Cartão com final 1111</option>
+          </select>
         </div>
         <div className="footer">
-          <button>Pagar</button>
+          <Button />
           <Link to="/">
             <button id="cancelBtn">Cancelar</button>
           </Link>

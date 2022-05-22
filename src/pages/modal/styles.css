@@ -21,7 +21,7 @@
 }
 
 .modalContainer .title {
-  background-color: #474A6E;
+  background-color: #474a6e;
   color: white;
   display: flex;
   flex: 8%;
@@ -29,6 +29,12 @@
   align-items: center;
   text-align: center;
   border-radius: 8px;
+}
+
+.modalContainer .title span {
+  font-weight: 700;
+  font-size: large;
+  color: rgb(254, 254, 5);
 }
 
 /* .titleCloseBtn {
@@ -50,8 +56,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   font-size: 1.7rem;
   text-align: center;
+}
+
+input,
+select {
+  height: 45px;
+  margin: 10px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  width: 19rem;
 }
 
 .modalContainer .footer {
