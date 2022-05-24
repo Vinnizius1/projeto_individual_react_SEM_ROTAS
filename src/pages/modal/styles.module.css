@@ -24,7 +24,7 @@
   background-color: #474a6e;
   color: white;
   display: flex;
-  flex: 8%;
+  flex: 0%;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -32,7 +32,7 @@
 }
 
 .modalContainer .title span {
-  font-weight: 700;
+  font-weight: 400;
   font-size: large;
   color: rgb(254, 254, 5);
 }
@@ -52,7 +52,7 @@
 } */
 
 .modalContainer .body {
-  flex: 50%;
+  flex: 56%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,6 +76,7 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 27px;
 }
 
 .modalContainer .footer button {
@@ -92,4 +93,8 @@ select {
 
 #cancelBtn {
   background-color: #cd1f40;
+}
+
+::placeholder {
+  padding-left: 4px;
 }
