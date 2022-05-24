@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import Button from "../../components/button/Button";
 import { APIPost } from "../../data/APIPost";
 import styles from "./styles.module.css";
 import { cartaoInvalido, cartaoValido } from "../../data/cartoes";
