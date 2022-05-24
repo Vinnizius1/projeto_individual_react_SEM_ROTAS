@@ -1,5 +1,5 @@
 // Cartões
-/* let cards = [
+export const cards = [
     // valid card
     {
       card_number: "1111111111111111",
@@ -13,7 +13,7 @@
       expiry_date: "01/20",
     },
   ];
- */
+
 
 // Exportação dos cartões separadamente
 export const cartaoValido = {

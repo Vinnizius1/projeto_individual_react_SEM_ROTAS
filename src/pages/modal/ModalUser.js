@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { APIPost } from "../../data/APIPost";
 import styles from "./styles.module.css";
-import { cartaoInvalido, cartaoValido } from "../../data/cartoes";
+import { cards, cartaoInvalido, cartaoValido } from "../../data/cartoes";
 
 // COMPONENTE
 function ModalUser() {
@@ -18,6 +18,7 @@ function ModalUser() {
   /* Função handleSubmit do formulário de pagamento */
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log(card_number);
 
     if (card_number === "1111111111111111") {
       fetch(APIPost, {
@@ -85,14 +86,27 @@ function ModalUser() {
           <form onSubmit={handleSubmit}>
             <input type="text" placeholder="R$ 0,00" required />
 
-            <select
+            {/* <select
               title="Selecione o seu cartão de crédito"
-              id="creditCard"
               value={card_number}
               onChange={(e) => setCard_Number(e.target.value)}
             >
               <option value="1111111111111111">Cartão com final 1111</option>
               <option value="4111111111111234">Cartão com final 1234</option>
+            </select> */}
+
+            <select
+              value={card_number}
+              onChange={(e) => setCard_Number(e.target.value)}
+            >
+              <option disabled>Número do Cartão</option>
+              {cards.map((card) => {
+                return (
+                  <option key={card.card_number} value={card.card_number}>
+                    Cartão com final {card.card_number.substring(12)}
+                  </option>
+                );
+              })}
             </select>
 
             <div className={styles.footer}>
