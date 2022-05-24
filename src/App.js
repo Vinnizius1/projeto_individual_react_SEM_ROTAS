@@ -1,4 +1,4 @@
-import Home from "./pages/home/Home";
+import Home from "./pages/Home/Home";
 import ModalUser from "./pages/modal/ModalUser";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
