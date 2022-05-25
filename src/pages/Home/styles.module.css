@@ -1,5 +1,7 @@
 .container {
   background-color: #f8f8ff;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 h1 {
@@ -10,7 +12,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.06rem;
+  margin-bottom: 2px;
   background-color: #27283b;
   /* max-width: 1000px; */
 }
