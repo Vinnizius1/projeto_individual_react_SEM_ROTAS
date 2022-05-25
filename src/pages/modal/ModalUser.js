@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { APIPost } from "../../data/APIPost";
-import styles from "./styles.module.css";
-import { cards, cartaoInvalido, cartaoValido } from "../../data/cartoes";
+import { cards } from "../../data/cartoes";
+import Button from "../../components/button/Button";
+import CancelButton from "../../components/cancelButton/CancelButton";
+import styles from "./ModalUser.module.css";
+import ValidCard from "../../components/validCard/ValidCard";
+import InvalidCard from "../../components/invalidCard/InvalidCard";
 
 // Máscara pro Input de valor R$
 function numbersOnly(string) {
@@ -21,69 +25,33 @@ function ModalUser() {
   /* useState */
   const [card_number, setCard_Number] = useState("1111111111111111");
   const [value_input, setValue_Input] = useState("");
-
-  /* useNavigate para voltar pra tela principal - Home - após o resultado do POST */
-  const navigate = useNavigate();
+  const [valid, setValid] = useState(false);
+  const [invalid, setInvalid] = useState(false);
 
   /* Função handleSubmit do formulário de pagamento */
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (card_number === "1111111111111111") {
-      fetch(APIPost, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(cartaoValido),
+    fetch(APIPost, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(card_number),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "Aprovada" && card_number === "4111111111111234") {
+          setInvalid(true);
+        } else if (data.status === "Aprovada") {
+          setValid(true);
+        }
       })
-        .then((response) => response.json())
-        .then((data) => {
-          handleValidCard(data);
-        })
-        .catch((err) => console.log(err));
-    } else if (card_number === "4111111111111234") {
-      fetch(APIPost, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(cartaoInvalido),
-      })
-        .then(() => handleInvalidCard())
-        .catch((err) => console.log(err));
-    }
+      .catch((err) => console.log(err));
   };
-
-  /* Função handleInvalidCard para lidar com os dados do POST */
-  function handleInvalidCard() {
-    // Seleciona as 3 div´s principais da DOM no Modal
-    const title = document.querySelector(`.${styles.title}`);
-    const body = document.querySelector(`.${styles.body}`);
-    const footer = document.querySelector(`.${styles.footer}`);
-
-    title.innerHTML = "Cartão Inválido";
-    body.innerHTML = "Cartão Inválido";
-    footer.innerHTML = "Cartão Inválido";
-
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
-  }
-
-  /* Função handleValidCard para lidar com os dados do POST */
-  function handleValidCard(dadosDoPost) {
-    const title = document.querySelector(`.${styles.title}`);
-    const body = document.querySelector(`.${styles.body}`);
-    const footer = document.querySelector(`.${styles.footer}`);
-
-    title.innerHTML = dadosDoPost.status;
-    body.innerHTML = dadosDoPost.status;
-    footer.innerHTML = dadosDoPost.status;
-
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
-  }
 
   return (
     <div className={styles.modalBackground}>
+      {valid && <ValidCard />}
+      {invalid && <InvalidCard />}
       <div className={styles.modalContainer}>
         <div className={styles.title}>
           <p>
@@ -116,9 +84,9 @@ function ModalUser() {
             </select>
 
             <div className={styles.footer}>
-              <button type="submit">Pagar</button>
+              <Button>Pagar</Button>
               <Link to="/">
-                <button id={styles.cancelBtn}>Cancelar</button>
+                <CancelButton>Cancelar</CancelButton>
               </Link>
             </div>
           </form>

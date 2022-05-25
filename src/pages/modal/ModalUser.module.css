@@ -65,22 +65,6 @@ select {
   margin-top: 27px;
 }
 
-.modalContainer .footer button {
-  width: 150px;
-  height: 45px;
-  margin: 10px;
-  border: none;
-  background-color: #4873c1;
-  color: white;
-  border-radius: 8px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-#cancelBtn {
-  background-color: #cd1f40;
-}
-
 ::placeholder {
   padding-left: 4px;
 }

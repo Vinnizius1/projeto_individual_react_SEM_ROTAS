@@ -51,7 +51,7 @@ const Home = () => {
             </div>
 
             <Link to={`/user/${user.name}`}>
-              <Button />
+              <Button>Pagar</Button>
             </Link>
           </div>
         );
