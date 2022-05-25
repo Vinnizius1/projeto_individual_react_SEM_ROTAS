@@ -37,20 +37,6 @@
   color: rgb(254, 254, 5);
 }
 
-/* .titleCloseBtn {
-  background-color: #474A6E;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.titleCloseBtn button {
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  font-weight: bold;
-} */
-
 .modalContainer .body {
   flex: 56%;
   display: flex;

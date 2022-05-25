@@ -4,13 +4,23 @@ import { APIPost } from "../../data/APIPost";
 import styles from "./styles.module.css";
 import { cards, cartaoInvalido, cartaoValido } from "../../data/cartoes";
 
+// Máscara pro Input de valor R$
+function numbersOnly(string) {
+  let valor = string;
+  valor = valor.replace(/\D/g, "");
+  valor = valor.replace(/(\d{1,2})$/, ",$1");
+  valor = valor.replace(/(\d)(?=(zd{3})+(?!\d))/g, "$1.");
+  return valor;
+}
+
 // COMPONENTE
 function ModalUser() {
   /* useParams */
   const { name } = useParams();
 
-  /* useState com os números (em string) do cartão selecionado */
+  /* useState */
   const [card_number, setCard_Number] = useState("1111111111111111");
+  const [value_input, setValue_Input] = useState("");
 
   /* useNavigate para voltar pra tela principal - Home - após o resultado do POST */
   const navigate = useNavigate();
@@ -18,7 +28,6 @@ function ModalUser() {
   /* Função handleSubmit do formulário de pagamento */
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(card_number);
 
     if (card_number === "1111111111111111") {
       fetch(APIPost, {
@@ -84,16 +93,13 @@ function ModalUser() {
 
         <div className={styles.body}>
           <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="R$ 0,00" required />
-
-            {/* <select
-              title="Selecione o seu cartão de crédito"
-              value={card_number}
-              onChange={(e) => setCard_Number(e.target.value)}
-            >
-              <option value="1111111111111111">Cartão com final 1111</option>
-              <option value="4111111111111234">Cartão com final 1234</option>
-            </select> */}
+            <input
+              type="text"
+              placeholder="R$ 0,00"
+              value={numbersOnly(value_input)}
+              onChange={(e) => setValue_Input(numbersOnly(e.target.value))}
+              required
+            />
 
             <select
               value={card_number}
@@ -117,14 +123,6 @@ function ModalUser() {
             </div>
           </form>
         </div>
-
-        {/* <div className={styles.footer}>
-          <Button />
-
-          <Link to="/">
-            <button id={styles.cancelBtn}>Cancelar</button>
-          </Link>
-        </div> */}
       </div>
     </div>
   );
