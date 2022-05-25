@@ -20,12 +20,18 @@
   padding: 20px;
 }
 
-.h1 {
-  color: red;
+.body {
+  display: flex;
+  flex: 60%;
+  align-items: center;
+}
+
+.body p {
+  font-size: 1.4rem;
 }
 
 .footer {
-  /* flex: 20%; */
+  flex: 20%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -29,11 +29,11 @@
   align-items: center;
   text-align: center;
   border-radius: 8px;
+  font-size: 1.25rem;
 }
 
 .modalContainer .title span {
-  font-weight: 400;
-  font-size: large;
+  font-size: 1.4rem;
   color: rgb(254, 254, 5);
 }
 

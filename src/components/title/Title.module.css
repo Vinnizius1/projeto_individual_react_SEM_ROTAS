@@ -1,0 +1,15 @@
+.title {
+  background-color: #474a6e;
+  color: white;
+  display: flex;
+  flex: 26%;
+
+  align-items: center;
+  border-radius: 8px;
+}
+
+.title p {
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-left: 1.6rem;
+}

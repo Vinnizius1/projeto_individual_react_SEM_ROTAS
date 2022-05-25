@@ -59,6 +59,8 @@ function ModalUser() {
           </p>
         </div>
 
+        {/* <Title texto='Pagamento para'> {name}</Title> */}
+
         <div className={styles.body}>
           <form onSubmit={handleSubmit}>
             <input
