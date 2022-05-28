@@ -10,7 +10,7 @@ h1 {
 
 .usuario {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 2px;
   background-color: #27283b;
@@ -26,7 +26,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-right: 30%;
+  /* margin-right: 30%; */
   letter-spacing: 1px;
   width: 23rem;
 }
@@ -43,9 +43,15 @@ h1 {
   font-size: larger;
 }
 
-@media screen and (max-width: 900px) {
+.botao {
+  /* position: absolute;
+  top: 84px;
+  right: 27%; */
+}
+
+/* @media screen and (max-width: 900px) {
   .usuario_dados {
-    margin-right: 25%;
+    margin-right: 45%;
   }
 }
 @media screen and (max-width: 700px) {
@@ -62,5 +68,4 @@ h1 {
   .usuario_dados {
     margin-right: 10%;
   }
-}
-
+} */
