@@ -38,25 +38,28 @@ const Home = () => {
       {users.map((user) => {
         return (
           <div className={styles.usuario} key={user.id}>
-            <img
-              className={styles.img_usuario}
-              src={user.img}
-              alt={user.name}
-            />
 
-            <div className={styles.usuario_dados}>
-              <p className={styles.p_usuario}>
-                Nome do Usuário: <span>{user.name}</span>
-              </p>
+            <div className={styles.teste}>
+              <img
+                className={styles.img_usuario}
+                src={user.img}
+                alt={user.name}
+              />
 
-              <p className={styles.p_usuario}>
-                ID: {user.id} - Username: {user.username}
-              </p>
+              <div className={styles.usuario_dados}>
+                <p className={styles.p_usuario}>
+                  Nome do Usuário: <span>{user.name}</span>
+                </p>
+
+                <p className={styles.p_usuario}>
+                  ID: {user.id} - Username: {user.username}
+                </p>
+              </div>
             </div>
 
             <div className={styles.botao}>
               <Link to={`/user/${user.name}`}>
-                <Button>Pagar</Button>
+                <Button primary="primary">Pagar</Button>
               </Link>
             </div>
           </div>

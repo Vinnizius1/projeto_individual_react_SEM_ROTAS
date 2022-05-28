@@ -8,12 +8,23 @@ h1 {
   text-align: center;
 }
 
+.teste {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao {
+  display: flex;
+}
+
 .usuario {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 2px;
   background-color: #27283b;
+  flex-wrap: wrap;
   /* max-width: 1000px; */
 }
 
@@ -43,11 +54,6 @@ h1 {
   font-size: larger;
 }
 
-.botao {
-  /* position: absolute;
-  top: 84px;
-  right: 27%; */
-}
 
 /* @media screen and (max-width: 900px) {
   .usuario_dados {

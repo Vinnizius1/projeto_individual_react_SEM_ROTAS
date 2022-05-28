@@ -1,4 +1,4 @@
-.button {
+.primary {
   width: 120px;
   height: 40px;
   margin: 10px;
@@ -8,12 +8,23 @@
   border-radius: 8px;
   font-size: 19px;
   cursor: pointer;
-
-  /* Ajustes posteriores */
-  /* position: absolute;
-  top: 84px;
-  right: 27%; */
 }
+
+.secondary {
+  width: 120px;
+  height: 40px;
+  margin: 10px;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 19px;
+  cursor: pointer;
+  background-color: #cd1f40;
+}
+/* 
+button[type="submit"] {
+
+} */
 
 /* @media screen and (max-width: 1000px) {
   .button {

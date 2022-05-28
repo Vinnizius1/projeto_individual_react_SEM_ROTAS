@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import CancelButton from "../cancelButton/CancelButton";
+// import CancelButton from "../cancelButton/CancelButton";
+import Button from "../button/Button";
 import { Title } from "../title/Title";
 import styles from "./InvalidCard.module.css";
 
@@ -17,7 +18,7 @@ const InvalidCard = () => {
 
         <div className={styles.footer}>
           <Link to="/">
-            <CancelButton>Voltar</CancelButton>
+            <Button secondary="secondary">Voltar</Button>
           </Link>
         </div>
       </div>

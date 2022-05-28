@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { APIPost } from "../../data/APIPost";
 import { cards } from "../../data/cartoes";
 import Button from "../../components/button/Button";
-import CancelButton from "../../components/cancelButton/CancelButton";
+// import CancelButton from "../../components/cancelButton/CancelButton";
 import styles from "./ModalUser.module.css";
 import ValidCard from "../../components/validCard/ValidCard";
 import InvalidCard from "../../components/invalidCard/InvalidCard";
@@ -86,9 +86,10 @@ function ModalUser() {
             </select>
 
             <div className={styles.footer}>
-              <Button>Pagar</Button>
+              <Button primary="primary">Pagar</Button>
               <Link to="/">
-                <CancelButton>Cancelar</CancelButton>
+                {/* <CancelButton>Cancelar</CancelButton> */}
+                <Button secondary="secondary">Cancelar</Button>
               </Link>
             </div>
           </form>
