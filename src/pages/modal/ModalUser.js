@@ -92,7 +92,7 @@ export default function ModalUser(props) {
             </select>
 
             <div className={styles.footer}>
-              <Button primary="primary" handleSubmit={handleSubmit}>Pagar</Button>
+              <Button primary="primary" handleSubmit={()=>handleSubmit}>Pagar</Button>
     
               <Button secondary="secondary" fechaModal={closeModal}>Cancelar</Button>  
             </div>
