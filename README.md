@@ -1,4 +1,4 @@
 ## Início... 👨‍💻
 
-https://react-creditcard-payment.netlify.app/
+https://react-credit-card-payment-version-2.netlify.app/
 <!-- 612px ou 528? -->
