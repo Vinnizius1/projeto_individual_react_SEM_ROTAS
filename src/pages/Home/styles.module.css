@@ -54,25 +54,3 @@ h1 {
   font-weight: 700;
   font-size: larger;
 }
-
-
-/* @media screen and (max-width: 900px) {
-  .usuario_dados {
-    margin-right: 45%;
-  }
-}
-@media screen and (max-width: 700px) {
-  .usuario_dados {
-    margin-right: 20%;
-  }
-}
-@media screen and (max-width: 600px) {
-  .usuario_dados {
-    margin-right: 15%;
-  }
-}
-@media screen and (max-width: 500px) {
-  .usuario_dados {
-    margin-right: 10%;
-  }
-} */

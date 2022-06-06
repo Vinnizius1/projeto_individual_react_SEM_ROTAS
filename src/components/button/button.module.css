@@ -21,25 +21,3 @@
   cursor: pointer;
   background-color: #cd1f40;
 }
-/* 
-button[type="submit"] {
-
-} */
-
-/* @media screen and (max-width: 1000px) {
-  .button {
-    margin-right: 1rem;
-  }
-} */
-
-/* @media screen and (max-width: 600px) {
-  .button {
-    margin-right: 2rem;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .button {
-    margin-right: 2.5rem;
-  }
-} */

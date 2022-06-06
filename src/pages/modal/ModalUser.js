@@ -1,12 +1,8 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import Button from "../../components/button/Button";
+import styles from "./ModalUser.module.css";
 import { APIPost } from "../../data/APIPost";
 import { cards } from "../../data/cartoes";
-import Button from "../../components/button/Button";
-// import CancelButton from "../../components/cancelButton/CancelButton";
-import styles from "./ModalUser.module.css";
-import ValidCard from "../../components/validCard/ValidCard";
-import InvalidCard from "../../components/invalidCard/InvalidCard";
 
 // Máscara pro Input de valor R$
 function numbersOnly(string) {
@@ -17,20 +13,31 @@ function numbersOnly(string) {
   return valor;
 }
 
-// COMPONENTE
-function ModalUser() {
-  /* useParams */
-  const { name } = useParams();
-
-  /* useState */
+/* COMPONENTE */
+export default function ModalUser(props) {
+  // Dados do cartão
   const [card_number, setCard_Number] = useState("1111111111111111");
   const [value_input, setValue_Input] = useState("");
-  const [valid, setValid] = useState(false);
-  const [invalid, setInvalid] = useState(false);
 
-  /* Função handleSubmit do formulário de pagamento */
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // fechaModal
+  function closeModal() {
+    props.fechaModal(false)
+  }
+
+  // abreCartaoValido
+  function openValidCard () {
+    props.abreCartaoValido(true)
+  }
+
+  // abreCartaoInvalido
+  function openInvalidCard () {
+    props.abreCartaoInvalido(true)
+  }
+
+  // Função handleSubmit do formulário de pagamento
+   const handleSubmit = (e) => {
+    // e.preventDefault();
+    if (e && e.preventDefault) { e.preventDefault(); }
 
     fetch(APIPost, {
       method: "POST",
@@ -40,26 +47,25 @@ function ModalUser() {
       .then((response) => response.json())
       .then((data) => {
         if (data.status === "Aprovada" && card_number === "4111111111111234") {
-          setInvalid(true);
+          openInvalidCard();
         } else if (data.status === "Aprovada") {
-          setValid(true);
+          openValidCard();
         }
       })
       .catch((err) => console.log(err));
   };
 
+  // RETURN
   return (
+    <>
     <div className={styles.modalBackground}>
-      {valid && <ValidCard />}
-      {invalid && <InvalidCard />}
       <div className={styles.modalContainer}>
+
         <div className={styles.title}>
           <p>
-            Pagamento para <span>{name}</span>
+            {props.titulo} <span>{props.subtitulo}</span>     
           </p>
         </div>
-
-        {/* <Title texto='Pagamento para'> {name}</Title> */}
 
         <div className={styles.body}>
           <form onSubmit={handleSubmit}>
@@ -86,17 +92,14 @@ function ModalUser() {
             </select>
 
             <div className={styles.footer}>
-              <Button primary="primary">Pagar</Button>
-              <Link to="/">
-                {/* <CancelButton>Cancelar</CancelButton> */}
-                <Button secondary="secondary">Cancelar</Button>
-              </Link>
+              <Button primary="primary" handleSubmit={handleSubmit}>Pagar</Button>
+    
+              <Button secondary="secondary" fechaModal={closeModal}>Cancelar</Button>  
             </div>
           </form>
         </div>
       </div>
     </div>
+    </>
   );
 }
-
-export default ModalUser;

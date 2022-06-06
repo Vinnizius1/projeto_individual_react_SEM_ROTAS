@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
-// import CancelButton from "../cancelButton/CancelButton";
 import Button from "../button/Button";
 import { Title } from "../title/Title";
 import styles from "./InvalidCard.module.css";
 
-const InvalidCard = () => {
+const InvalidCard = (props) => {
+  // Fecha o cartão
+  function closeInvalidCard() {
+    props.fechaInvalidCard(false);
+  }
+
   return (
     <div className={styles.finalBackground}>
       <div className={styles.finalContainer}>
@@ -17,9 +20,9 @@ const InvalidCard = () => {
         </div>
 
         <div className={styles.footer}>
-          <Link to="/">
-            <Button secondary="secondary">Voltar</Button>
-          </Link>
+          <Button secondary="secondary" fechaInvalidCard={closeInvalidCard}>
+            Voltar
+          </Button>
         </div>
       </div>
     </div>
