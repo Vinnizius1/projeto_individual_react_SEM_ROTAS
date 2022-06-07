@@ -81,3 +81,9 @@ select {
 ::placeholder {
   padding-left: 4px;
 }
+
+@media screen and (max-width: 700px) {
+  .modalContainer {
+    width: 88%;
+  }
+}

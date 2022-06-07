@@ -39,3 +39,9 @@
   align-items: center;
   margin-top: 27px;
 }
+
+@media screen and (max-width: 700px) {
+  .finalContainer {
+    width: 88%;
+  }
+}
