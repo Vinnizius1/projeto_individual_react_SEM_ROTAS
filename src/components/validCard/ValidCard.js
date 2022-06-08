@@ -8,14 +8,7 @@ const ValidCard = (props) => {
     props.fechaValidCard(false)
   }
 
-  // Fecha tudo e volta pra tela inicial
-  // function closeAllCards (props) {
-  //   props.fechaModal(false);
-
-  // }
-  /* fechaModal={closeAllCards} */
-
-  /* Fecha todos os modais porventura abertos */
+  // Fecha todos os modais porventura abertos
   function goTo(boolean) {
     props.navegarPara(boolean);
   }
