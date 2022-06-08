@@ -3,13 +3,25 @@
   color: white;
   display: flex;
   flex: 26%;
-
+  justify-content: space-between;
   align-items: center;
   border-radius: 8px;
 }
 
-.title p {
+.p {
   font-weight: 400;
   font-size: 1.3rem;
   margin-left: 1.6rem;
+}
+
+.x {
+  margin-right: 25px;
+  font-size: 1.5rem;
+  color: #000000;
+  font-weight: 700;
+  border: px solid #f00;
+  outline-style: double;
+  font-family: sans-serif;
+  color: yellow;
+  padding: 0 3px;
 }

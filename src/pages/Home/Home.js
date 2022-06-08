@@ -35,6 +35,13 @@ const Home = () => {
     setUserOn(user);
   }
 
+  /*  */
+  function goToHome() {
+    setModal(false)
+    setInvalid(false)
+    setValid(false)
+  }
+
   return (
     <div className={styles.container} id="home">
       {/* {modal && <ModalUser closeModal={setModal}/>} */}
@@ -45,7 +52,6 @@ const Home = () => {
       ) : (
         <h1>Lista de Usuários</h1>
       )}
-
       {/* Listagem dos usuários com MAP */}
       <>
         {users.map((user) => {
@@ -80,9 +86,9 @@ const Home = () => {
 
         {modal && <ModalUser titulo="Pagamento para" subtitulo={userOn.name} fechaModal={setModal} abreCartaoValido={setValid} abreCartaoInvalido={setInvalid}/>}
 
-        {valid && <ValidCard fechaValidCard={setValid}/>} 
+        {valid && <ValidCard fechaValidCard={setValid} navegarPara={goToHome}/>} 
 
-        {invalid && <InvalidCard fechaInvalidCard={setInvalid}/>} 
+        {invalid && <InvalidCard fechaInvalidCard={setInvalid} navegarPara={goToHome}/>} 
       </>
     </div>
   );

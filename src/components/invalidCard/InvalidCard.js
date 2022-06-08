@@ -8,10 +8,15 @@ const InvalidCard = (props) => {
     props.fechaInvalidCard(false);
   }
 
+  // Fecha todos os modais porventura abertos
+  function goTo(boolean) {
+    props.navegarPara(boolean);
+  }
+
   return (
     <div className={styles.finalBackground}>
       <div className={styles.finalContainer}>
-        <Title texto="Recibo de Pagamento" />
+        <Title texto="Recibo de Pagamento" navegarPara={goTo} />
 
         <div className={styles.body}>
           <p>
