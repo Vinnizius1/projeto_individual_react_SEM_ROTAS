@@ -19,9 +19,9 @@
   font-size: 1.5rem;
   color: #000000;
   font-weight: 700;
-  border: px solid #f00;
   outline-style: double;
   font-family: sans-serif;
   color: yellow;
   padding: 0 3px;
+  cursor: pointer;
 }
