@@ -44,7 +44,6 @@ export default function ModalUser(props) {
    const handleSubmit = (e) => {
     // e.preventDefault();
     if (e && e.preventDefault) { e.preventDefault(); }
-
     fetch(APIPost, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
