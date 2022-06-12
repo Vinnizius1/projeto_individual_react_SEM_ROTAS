@@ -1,13 +1,14 @@
 import React from "react";
-import primary from "./button.module.css";
-import secondary from "./button.module.css";
+// import primary from "./button.module.css";
+// import secondary from "./button.module.css";
+import style from "./button.module.css";
 
 const Button = (props) => {
   if (props.ok) {
     return (
       <button
         onClick={() => props.ok()}
-        className={props.primary ? primary.primary : secondary.secondary}
+        className={props.primary ? style.primary : style.secondary}
       >
         {props.children}
       </button>
@@ -17,7 +18,7 @@ const Button = (props) => {
       <button
         type="button"
         onClick={() => props.fechaModal()}
-        className={props.primary ? primary.primary : secondary.secondary}
+        className={props.primary ? style.primary : style.secondary}
       >
         {props.children}
       </button>
@@ -27,7 +28,7 @@ const Button = (props) => {
       <button
         type="submit"
         onClick={() => props.handleSubmit()}
-        className={props.primary ? primary.primary : secondary.secondary}
+        className={props.primary ? style.primary : style.secondary}
       >
         {props.children}
       </button>
@@ -37,7 +38,7 @@ const Button = (props) => {
       <button
         type="button"
         onClick={() => props.fechaInvalidCard()}
-        className={props.primary ? primary.primary : secondary.secondary}
+        className={props.primary ? style.primary : style.secondary}
       >
         {props.children}
       </button>
@@ -47,7 +48,7 @@ const Button = (props) => {
       <button
         type="button"
         onClick={() => props.fechaValidCard()}
-        className={props.primary ? primary.primary : secondary.secondary}
+        className={props.primary ? style.primary : style.secondary}
       >
         {props.children}
       </button>
