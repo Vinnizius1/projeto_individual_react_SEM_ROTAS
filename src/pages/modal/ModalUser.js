@@ -7,15 +7,27 @@ import { cards } from "../../data/cartoes";
 // Máscara pro Input de valor R$
 function numbersOnly(string) {
   let valor = string;
-  valor = valor.replace(/\D/g, "");
-  valor = valor.replace(/(\d{1,2})$/, ",$1");
-  valor = valor.replace(/(\d)(?=(zd{3})+(?!\d))/g, "$1.");
+  // valor = valor.replace(/\D/g, "");
+  // valor = valor.replace(/(\d{1,2})$/, ",$1");
+  // valor = valor.replace(/(\d)(?=(zd{3})+(?!\d))/g, "$1.");
 
   // valor = valor.replace(/\D/g, '')
   //              .replace(/^0*/, '')
   //              .padStart(3, '0');
-
   // valor = `${valor.slice(0, -2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')},${valor.slice(-2)}`
+
+ /*  Nova máscara! */
+  valor = valor.toString();
+  valor = valor.replace(/[\D]+/g, "");
+  valor = valor.replace(/([0-9]{2})$/g, ",$1");
+
+  if (valor.length >= 6) {
+    while (/([0-9]{4})[,|.]/g.test(valor)) {
+      valor = valor.replace(/([0-9]{2})$/g, ",$1");
+      valor = valor.replace(/([0-9]{3})[,|.]/g, ".$1");
+    }
+  }
+  
   return valor;
 }
 
