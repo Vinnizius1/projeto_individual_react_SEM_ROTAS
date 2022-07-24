@@ -7,6 +7,7 @@ const Button = (props) => {
   if (props.ok) {
     return (
       <button
+        type="button"
         onClick={() => props.ok()}
         className={props.primary ? style.primary : style.secondary}
       >
