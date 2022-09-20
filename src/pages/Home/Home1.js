@@ -12,14 +12,20 @@ const Home1 = () => {
   const [userOn, setUserOn] = useState({});
   const [valid, setValid] = useState(0);
 
+  // Paginação
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const [usuariosPorPagina, setUsuariosPorPagina] = useState(7);
+
   /* GET Fetch */
   useEffect(() => {
     setIsPending(true);
+
     fetch(APIGet)
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
         // console.log(data);
+        
         setIsPending(false);
       })
       .catch((err) => console.log("A requisição falhou", err));
@@ -32,6 +38,11 @@ const Home1 = () => {
     setUserOn(user);
   }
 
+  /* Pega os dados de usuários atuais */
+  const indexDoUltimoUsuario = paginaAtual * usuariosPorPagina;
+  const indexDoPrimeiroUsuario = indexDoUltimoUsuario - usuariosPorPagina;
+  const usuariosAtuais = users.slice(indexDoPrimeiroUsuario, indexDoUltimoUsuario);
+
   return (
     <div className={styles.container} id="home">
       {isPending ? (
@@ -43,7 +54,7 @@ const Home1 = () => {
       )}
 
       <>
-        {users.map((user) => {
+        {usuariosAtuais.map((user) => {
             // console.log(user)
           return (
             <div className={styles.usuario} key={user.id}>
