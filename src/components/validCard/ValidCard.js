@@ -4,26 +4,30 @@ import styles from "./ValidCard.module.css";
 
 const ValidCard = (props) => {
   // Fecha o cartão
-  function closeValidCard () {
-    props.fechaValidCard(false)
+  function closeValidCard() {
+    props.setValid(1);
   }
 
-  // Fecha todos os modais porventura abertos
-  function goTo(boolean) {
-    props.navegarPara(boolean);
+  // Fecha os modais porventura abertos
+  function goTo() {
+    props.setValid(0);
   }
 
   return (
     <div className={styles.finalBackground}>
       <div className={styles.finalContainer}>
-        <Title texto="Recibo de Pagamento" navegarPara={goTo}/>
+        <Title texto="Recibo de Pagamento" goTo={goTo} />
 
         <div className={styles.body}>
-          <p>O pagamento foi concluído com <b>sucesso</b>.</p>
+          <p>
+            O pagamento foi concluído com <b>sucesso</b>.
+          </p>
         </div>
 
         <div className={styles.footer}>
-            <Button secondary="secondary" fechaValidCard={closeValidCard}>Voltar</Button>
+          <Button color="secondary" executaFuncao={closeValidCard}>
+            Voltar
+          </Button>
         </div>
       </div>
     </div>

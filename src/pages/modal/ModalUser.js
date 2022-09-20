@@ -39,17 +39,17 @@ export default function ModalUser(props) {
 
   // fechaModal
   function closeModal() {
-    props.fechaModal(false);
+    props.setValid(0);
   }
 
   // abreCartaoValido
   function openValidCard() {
-    props.abreCartaoValido(true);
+    props.setValid(2);
   }
 
   // abreCartaoInvalido
   function openInvalidCard() {
-    props.abreCartaoInvalido(true);
+    props.setValid(3);
   }
 
   // Função handleSubmit do formulário de pagamento
@@ -110,11 +110,11 @@ export default function ModalUser(props) {
               </select>
 
               <div className={styles.footer}>
-                <Button primary="primary" handleSubmit={() => handleSubmit}>
+                <Button color="primary" tipoDoBotao="submit" executaFuncao={handleSubmit}>
                   Pagar
                 </Button>
 
-                <Button secondary="secondary" fechaModal={closeModal}>
+                <Button color="secondary" executaFuncao={closeModal}>
                   Cancelar
                 </Button>
               </div>

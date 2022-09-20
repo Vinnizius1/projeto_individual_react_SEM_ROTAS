@@ -5,7 +5,7 @@ export const Title = (props) => {
     <div className={styles.title}>
       <p className={styles.p}>{props.texto}</p>
       <p className={styles.x}  onClick={() => {
-          props.navegarPara();
+          props.goTo();
         }}>X</p>
     </div>
   );

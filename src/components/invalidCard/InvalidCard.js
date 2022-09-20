@@ -5,18 +5,18 @@ import styles from "./InvalidCard.module.css";
 const InvalidCard = (props) => {
   // Fecha o cartão
   function closeInvalidCard() {
-    props.fechaInvalidCard(false);
+    props.setValid(1);
   }
 
   // Fecha todos os modais porventura abertos
-  function goTo(boolean) {
-    props.navegarPara(boolean);
+  function goTo() {
+    props.setValid(0);
   }
 
   return (
     <div className={styles.finalBackground}>
       <div className={styles.finalContainer}>
-        <Title texto="Recibo de Pagamento" navegarPara={goTo} />
+        <Title texto="Recibo de Pagamento" goTo={goTo} />
 
         <div className={styles.body}>
           <p>
@@ -25,7 +25,7 @@ const InvalidCard = (props) => {
         </div>
 
         <div className={styles.footer}>
-          <Button secondary="secondary" fechaInvalidCard={closeInvalidCard}>
+          <Button color="secondary" executaFuncao={closeInvalidCard}>
             Voltar
           </Button>
         </div>
