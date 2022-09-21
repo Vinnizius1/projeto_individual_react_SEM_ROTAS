@@ -5,6 +5,7 @@ import InvalidCard from "../../components/invalidCard/InvalidCard";
 import { APIGet } from "../../data/APIGet";
 import Button from "../../components/button/Button";
 import styles from "./styles.module.css";
+import { Pagination } from "../../components/Pagination";
 
 const Home1 = () => {
   const [users, setUsers] = useState([]);
@@ -14,7 +15,7 @@ const Home1 = () => {
 
   // Paginação
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const [usuariosPorPagina, setUsuariosPorPagina] = useState(7);
+  const [usuariosPorPagina] = useState(5);
 
   /* GET Fetch */
   useEffect(() => {
@@ -25,12 +26,11 @@ const Home1 = () => {
       .then((data) => {
         setUsers(data);
         // console.log(data);
-        
+
         setIsPending(false);
       })
       .catch((err) => console.log("A requisição falhou", err));
   }, []);
-
 
   /* Abre o modal enviando os dados do usuário clicado */
   function abreModal(user) {
@@ -41,7 +41,13 @@ const Home1 = () => {
   /* Pega os dados de usuários atuais */
   const indexDoUltimoUsuario = paginaAtual * usuariosPorPagina;
   const indexDoPrimeiroUsuario = indexDoUltimoUsuario - usuariosPorPagina;
-  const usuariosAtuais = users.slice(indexDoPrimeiroUsuario, indexDoUltimoUsuario);
+  const usuariosAtuais = users.slice(
+    indexDoPrimeiroUsuario,
+    indexDoUltimoUsuario
+  );
+
+  /* Muda a página */
+  const paginate = (numeroDaPagina) => setPaginaAtual(numeroDaPagina);
 
   return (
     <div className={styles.container} id="home">
@@ -55,7 +61,7 @@ const Home1 = () => {
 
       <>
         {usuariosAtuais.map((user) => {
-            // console.log(user)
+          // console.log(user)
           return (
             <div className={styles.usuario} key={user.id}>
               <div className={styles.teste}>
@@ -77,19 +83,30 @@ const Home1 = () => {
               </div>
 
               <div className={styles.botao}>
-                <Button color="primary" executaFuncao={()=>abreModal(user)}>
+                <Button color="primary" executaFuncao={() => abreModal(user)}>
                   Pagar
                 </Button>
               </div>
             </div>
           );
         })}
+        <Pagination
+          usuariosPorPagina={usuariosPorPagina}
+          usuariosTotais={users.length}
+          paginate={paginate}
+        />
 
-        {valid === 1 && <ModalUser titulo="Pagamento para" subtitulo={userOn.name} setValid={setValid} />}
+        {valid === 1 && (
+          <ModalUser
+            titulo="Pagamento para"
+            subtitulo={userOn.name}
+            setValid={setValid}
+          />
+        )}
 
-        {valid === 2 && <ValidCard setValid={setValid} />} 
+        {valid === 2 && <ValidCard setValid={setValid} />}
 
-        {valid === 3 && <InvalidCard setValid={setValid} />} 
+        {valid === 3 && <InvalidCard setValid={setValid} />}
       </>
     </div>
   );
