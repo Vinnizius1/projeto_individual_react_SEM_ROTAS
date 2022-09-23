@@ -5,12 +5,12 @@ import styles from "./InvalidCard.module.css";
 const InvalidCard = (props) => {
   // Fecha o cartão
   function closeInvalidCard() {
-    props.setValid(1);
+    props.setValid("modal");
   }
 
   // Fecha todos os modais porventura abertos
   function goTo() {
-    props.setValid(0);
+    props.setValid("home");
   }
 
   return (

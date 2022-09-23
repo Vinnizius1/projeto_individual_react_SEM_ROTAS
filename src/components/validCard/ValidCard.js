@@ -5,12 +5,12 @@ import styles from "./ValidCard.module.css";
 const ValidCard = (props) => {
   // Fecha o cartão
   function closeValidCard() {
-    props.setValid(1);
+    props.setValid("modal");
   }
 
   // Fecha os modais porventura abertos
   function goTo() {
-    props.setValid(0);
+    props.setValid("home");
   }
 
   return (

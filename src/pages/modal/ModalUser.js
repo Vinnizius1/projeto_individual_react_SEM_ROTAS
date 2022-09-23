@@ -38,24 +38,23 @@ export default function ModalUser(props) {
 
   // fechaModal
   function closeModal() {
-    props.setValid(0);
+    props.setValid("home");
   }
 
   // abreCartaoValido
   function openValidCard() {
-    props.setValid(2);
+    props.setValid("validCard");
   }
 
   // abreCartaoInvalido
   function openInvalidCard() {
-    props.setValid(3);
+    props.setValid("invalidCard");
   }
 
   // Função handleSubmit do formulário de pagamento
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(e);
-
     fetch(APIPost, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -115,7 +114,6 @@ export default function ModalUser(props) {
                 >
                   Pagar
                 </Button>
-
                 <Button color="secondary" executaFuncao={closeModal}>
                   Cancelar
                 </Button>

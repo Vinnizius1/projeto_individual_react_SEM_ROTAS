@@ -12,7 +12,7 @@ const Home1 = () => {
   const [isPending, setIsPending] = useState(false);
   const [userOn, setUserOn] = useState({});
   
-  const [valid, setValid] = useState(0);
+  const [valid, setValid] = useState("home");
   
   // Paginação
   const [paginaAtual, setPaginaAtual] = useState(1);
@@ -27,7 +27,6 @@ const Home1 = () => {
       .then((data) => {
         setUsers(data);
         // console.log(data);
-
         setIsPending(false);
       })
       .catch((err) => console.log("A requisição falhou", err));
@@ -35,7 +34,7 @@ const Home1 = () => {
 
   /* Abre o modal enviando os dados do usuário clicado */
   function abreModal(user) {
-    setValid(1);
+    setValid("modal");
     setUserOn(user);
   }
 
@@ -46,8 +45,6 @@ const Home1 = () => {
     indexDoPrimeiroUsuario,
     indexDoUltimoUsuario
   );
-
-  console.log("renderizou");
 
   /* Muda a página */
   const paginate = (numeroDaPagina) => setPaginaAtual(numeroDaPagina);
@@ -99,7 +96,7 @@ const Home1 = () => {
           paginate={paginate}
         />
 
-        {valid === 1 && (
+        {valid === "modal" && (
           <ModalUser
             titulo="Pagamento para"
             subtitulo={userOn.name}
@@ -107,9 +104,9 @@ const Home1 = () => {
           />
         )}
 
-        {valid === 2 && <ValidCard setValid={setValid} />}
+        {valid === "validCard" && <ValidCard setValid={setValid} />}
 
-        {valid === 3 && <InvalidCard setValid={setValid} />}
+        {valid === "invalidCard" && <InvalidCard setValid={setValid} />}
       </>
     </div>
   );
