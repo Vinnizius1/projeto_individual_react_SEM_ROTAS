@@ -1,6 +1,4 @@
 import React from "react";
-// import primary from "./button.module.css";
-// import secondary from "./button.module.css";
 import styles from "./button.module.css";
 
 const Button = ({ children, color, executaFuncao, tipoDoBotao }) => {

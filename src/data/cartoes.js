@@ -1,4 +1,4 @@
-// Cartões
+/* Cartões */
 export const cards = [
     // valid card
     {

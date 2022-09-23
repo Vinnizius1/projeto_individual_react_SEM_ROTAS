@@ -11,9 +11,8 @@ const Home1 = () => {
   const [users, setUsers] = useState([]);
   const [isPending, setIsPending] = useState(false);
   const [userOn, setUserOn] = useState({});
-  
   const [valid, setValid] = useState("home");
-  
+
   // Paginação
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [usuariosPorPagina] = useState(5);
@@ -21,7 +20,6 @@ const Home1 = () => {
   /* GET Fetch */
   useEffect(() => {
     setIsPending(true);
-
     fetch(APIGet)
       .then((response) => response.json())
       .then((data) => {
@@ -53,7 +51,7 @@ const Home1 = () => {
     <div className={styles.container} id="home">
       {isPending ? (
         <h1 style={{ fontSize: "3rem", fontFamily: "cursive" }}>
-          Carregando.......
+          Carregando...
         </h1>
       ) : (
         <h1>Lista de Usuários</h1>
@@ -90,6 +88,7 @@ const Home1 = () => {
             </div>
           );
         })}
+        
         <Pagination
           usuariosPorPagina={usuariosPorPagina}
           usuariosTotais={users.length}
