@@ -11,8 +11,9 @@ const Home1 = () => {
   const [users, setUsers] = useState([]);
   const [isPending, setIsPending] = useState(false);
   const [userOn, setUserOn] = useState({});
+  
   const [valid, setValid] = useState(0);
-
+  
   // Paginação
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [usuariosPorPagina] = useState(5);
@@ -45,6 +46,8 @@ const Home1 = () => {
     indexDoPrimeiroUsuario,
     indexDoUltimoUsuario
   );
+
+  console.log("renderizou");
 
   /* Muda a página */
   const paginate = (numeroDaPagina) => setPaginaAtual(numeroDaPagina);

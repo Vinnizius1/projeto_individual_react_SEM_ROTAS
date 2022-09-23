@@ -8,10 +8,10 @@ import styles from "./styles.module.css";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
-  const [modal, setModal] = useState(false);
   const [isPending, setIsPending] = useState(false);
   const [userOn, setUserOn] = useState({});
   
+  const [modal, setModal] = useState(false);
   const [valid, setValid] = useState(false);
   const [invalid, setInvalid] = useState(false);
 

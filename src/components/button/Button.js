@@ -9,9 +9,7 @@ const Button = ({ children, color, executaFuncao, tipoDoBotao }) => {
       className={`${
         color === "primary" ? `${styles.primary}` : `${styles.secondary}`
       }`}
-      onClick={() => {
-        executaFuncao();
-      }}
+      onClick={() => executaFuncao()}
       type={tipoDoBotao || "button"}
     >
       {children}

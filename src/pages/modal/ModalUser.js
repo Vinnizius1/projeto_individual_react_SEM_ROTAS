@@ -27,7 +27,6 @@ function numbersOnly(string) {
       valor = valor.replace(/([0-9]{3})[,|.]/g, ".$1");
     }
   }
-
   return valor;
 }
 
@@ -54,10 +53,9 @@ export default function ModalUser(props) {
 
   // Função handleSubmit do formulário de pagamento
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    if (e && e.preventDefault) {
-      e.preventDefault();
-    }
+    e.preventDefault();
+    // console.log(e);
+
     fetch(APIPost, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -110,7 +108,11 @@ export default function ModalUser(props) {
               </select>
 
               <div className={styles.footer}>
-                <Button color="primary" tipoDoBotao="submit" executaFuncao={handleSubmit}>
+                <Button
+                  color="primary"
+                  tipoDoBotao="submit"
+                  executaFuncao={() => handleSubmit}
+                >
                   Pagar
                 </Button>
 
