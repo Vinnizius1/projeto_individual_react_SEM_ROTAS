@@ -54,3 +54,9 @@ h1 {
   font-weight: 700;
   font-size: larger;
 }
+
+.input_search {
+  margin: 20px auto;
+  display: flex;
+  border-radius: 10px;
+}

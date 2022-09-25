@@ -46,7 +46,6 @@ export default function ModalUser(props) {
   // Função handleSubmit do formulário de pagamento
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(e);
     fetch(APIPost, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -70,7 +69,7 @@ export default function ModalUser(props) {
         <div className={styles.modalContainer}>
           <div className={styles.title}>
             <p>
-              {props.titulo} <span>{props.subtitulo}</span>
+              Pagamento para <span>{props.data.name}</span>
             </p>
           </div>
 
