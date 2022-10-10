@@ -24,6 +24,7 @@ function numbersOnly(string) {
 
 /* COMPONENTE */
 export default function ModalUser(props) {
+  // console.log(props.data);
   // Dados do cartão
   const [card_number, setCard_Number] = useState("1111111111111111");
   const [value_input, setValue_Input] = useState("");

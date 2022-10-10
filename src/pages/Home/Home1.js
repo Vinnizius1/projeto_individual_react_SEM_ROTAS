@@ -3,15 +3,23 @@ import ModalUser from "../modal/ModalUser";
 import ValidCard from "../../components/validCard/ValidCard";
 import InvalidCard from "../../components/invalidCard/InvalidCard";
 import { APIGet } from "../../data/APIGet";
+
+// Botão componentizado
 import Button from "../../components/button/Button";
-import styles from "./styles.module.css";
+
+// Paginação
 import { Pagination } from "../../components/Pagination";
+
+// Estilos
+import styles from "./styles.module.css";
 
 const Home1 = () => {
   const [users, setUsers] = useState([]);
   const [isPending, setIsPending] = useState(false);
   const [data, setData] = useState({});
   const [valid, setValid] = useState("home");
+
+  // Filtro
   const [query, setQuery] = useState("");
 
   // Paginação
@@ -25,7 +33,6 @@ const Home1 = () => {
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
-        // console.log(data);
         setIsPending(false);
       })
       .catch((err) => console.log("A requisição falhou", err));
@@ -40,6 +47,7 @@ const Home1 = () => {
   /* Pega os dados de usuários atuais e depois muda a página*/
   const indexDoUltimoUsuario = paginaAtual * usuariosPorPagina;
   const indexDoPrimeiroUsuario = indexDoUltimoUsuario - usuariosPorPagina;
+  // "usuariosAtuais" é igual a "users"
   const usuariosAtuais = users.slice(
     indexDoPrimeiroUsuario,
     indexDoUltimoUsuario
